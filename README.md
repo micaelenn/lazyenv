@@ -1,7 +1,3 @@
-<div align="center">
-<img width="200" height="120" alt="lazyenv" src="https://github.com/user-attachments/assets/eb79b4ae-3f25-451f-945a-f5870fac9f9d" />  
-</div>
-
 # lazyenv 
 
 A simple tool that scans the current directory, finds all environment variable names used via `process.env.*` in your code, and automatically generates a `.env` file containing those variables.
