@@ -1,0 +1,20 @@
+{
+  "name": "lazyenv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "lazyenv": "./index.js"
+  },
+  "type": "module",
+  "scripts": {},
+  "engines": {
+    "npm": ">=10.9.3",
+    "node": ">=22.19.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^13.0.0"
+  }
+}
