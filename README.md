@@ -1,27 +1,67 @@
-# lazyenv 
+# Lazyenv
 
-A simple tool that scans the current directory, finds all environment variable names used via `process.env.*` in your code, and automatically generates a `.env` file containing those variables.
+Automatically generate a `.env` file with all variable names found in your project.
 
-## Requirements
-- [Node.js](https://nodejs.org/en) - 22+
+[![npm version](https://img.shields.io/npm/v/@micaelen/lazyenv.svg)](https://www.npmjs.com/package/@micaelen/lazyenv)
+[![GitHub repo](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/micaelenn/lazyenv)
+
+## Overview
+
+**Lazyenv** is a utility that scans your project for environment variables and auto-generates a `.env` file with those variable names. This helps you quickly scaffold env files for development, CI, or production without manually hunting through your codebase.
+
+## Features
+
+- Scans source files to find all environment variable references.
+- Generates a `.env` file listing all detected variable names.
+- Streamlines onboarding and environment setup for your project.
+- Simple CLI and API.
+
+## Installation
+
+Install via npm:
+
+```bash
+npm install -g @micaelen/lazyenv
+# or as a dev dependency
+npm install --save-dev @micaelen/lazyenv
+```
+
+## Usage
+
+Generate a `.env` file in the current directory:
+
+```bash
+lazyenv
+```
+
+You can also specify a different source directory:
+
+```bash
+lazyenv src/
+```
 
 ## How It Works
 
-When you run the `lazyenv` command at the root of your project:
+Lazyenv parses your project files (JavaScript by default) to detect usages of `process.env.*` and extracts the variable names. It writes a `.env` file with placeholders so you can fill in values.
 
-1. It scans all files in the project
-2. Searches for code patterns such as _process.env.DB_HOST_ or _process.env.JWT_SECRET_
-3. Extracts only the variable names (_DB_HOST, JWT_SECRET_)
-4. Automatically generates a .env file with these variables
+## Example
 
-## Default Ignored Directories
-The CLI automatically skips:
+Suppose your code uses:
 
-- node_modules
-- .git
-- .next
-- dist
-- build
-- coverage
-- .turbo
-- out
+```js
+process.env.DB_HOST
+process.env.API_KEY
+process.env.SECRET
+```
+
+Lazyenv produces:
+
+```
+DB_HOST=
+API_KEY=
+SECRET=
+```
+
+## Author
+
+- [@micaelenn](https://github.com/micaelenn)
